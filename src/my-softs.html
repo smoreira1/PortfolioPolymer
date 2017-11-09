@@ -1,0 +1,66 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-softs">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+
+    <div class="card">
+      <h1>Programming Languages, Frameworks, Concepts and Much More!!</h1>
+      <img class='center'
+      src='images/soft-skills.jpg'>
+      <paper-input always-float-label label="Search Soft Skills"></paper-input>      
+    </div>
+
+    <div class="card">
+      <h1>Angular</h1>
+      <p>Angular the succession of AngularJS. It was first through Angular that I gotten to known the power of NPM and it's community. Truely a great discovery. Angular itself
+        is not just a framework, but more of a plateform 
+      </p>
+      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
+    </div>
+
+    <div class="card">
+      <h1>AngularJS</h1>
+      <p>Angular the succession of AngularJS. It was first through Angular that I gotten to known the power of NPM and it's community. Truely a great discovery. Angular itself
+        is not just a framework, but more of a plateform 
+      </p>
+      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
+    </div>
+
+    <template is="dom-repeat" items="{{languageSkills}}">
+      <div class="card">
+        <h1>[[languageSkills.name]]</h1>
+        <span>[[languageSkills.type]]</span>
+        <p>[[languageSkills.details]]</p>
+      </div>
+  </template>
+
+
+  </template>
+
+  <script>
+    class MySofts extends Polymer.Element {
+      static get is() { return 'my-softs'; }
+    }
+    window.customElements.define(MySofts.is, MySofts);
+  </script>
+  
+</dom-module>

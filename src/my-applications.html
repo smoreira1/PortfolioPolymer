@@ -1,0 +1,160 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-applications">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+
+    <div class="card">
+      <h1>Software Applications, from IDE's to the terminal!</h1>
+      <img class='center'
+      src='images/applications.png'>
+      <paper-input always-float-label label="Search Applications"></paper-input>     
+    </div>
+
+    <template is="dom-repeat" items="{{applications}}" id='applicationList'>
+      <div class="card">
+        <h1>[[item.name]]</h1>
+        <span>[[item.type]]</span>
+        <p>[[item.details]]</p>
+      </div>
+    </template>
+
+
+    
+  </template>
+
+  <script>
+    class MyApplications extends Polymer.Element {
+      static get is() { return 'my-applications'; }
+
+      static get properties() {
+        return {
+          applications: {
+            type: Array,
+            value() {
+              return [
+              { name: 'Azure', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'SQL Developer', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'SQL Plus', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Node Package Manager (NPM)', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Node.js', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Gulp', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Bower', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'GIT', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'SVN', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'CMD', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Web Browsers', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Dev Tools', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Light House', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Visual Studio Code', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Eclipse', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Brackets', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Enteprise Manager', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Internet Information Services (IIS)', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'JBoss', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'GitHub', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Visual Studio Team Services', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Beyond Compare', 
+                type: 'Cloud', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'Jenkins', 
+                type: 'Web Application', 
+                proficiency: '3', 
+                details: ``, image: '' },
+                { name: 'JIRA', 
+                type: 'Web Application', 
+                proficiency: '3', 
+                details: ``, image: '' },
+              ];
+            }
+          }
+        }
+      }
+
+
+    }
+
+    window.customElements.define(MyApplications.is, MyApplications);
+  </script>
+</dom-module>

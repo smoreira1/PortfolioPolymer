@@ -1,0 +1,152 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+
+<dom-module id="my-languages">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+
+    <div class="card">
+      <h1>Programming Languages, Frameworks, Concepts and Much More!!</h1>
+      <img class='center'
+      src='images/languages.jpg'>
+      <paper-input always-float-label label="Search Languages"></paper-input>      
+    </div>
+
+    <template is="dom-repeat" items="{{languages}}" id='languageList'>
+      <div class="card">
+        <h1>[[item.name]]</h1>
+        <span>[[item.type]]</span>
+        <p>[[item.details]]</p>
+      </div>
+    </template>
+
+
+  </template>
+
+  <script>
+    class MyLanguages extends Polymer.Element {
+      
+      static get is() { return 'my-languages'; }
+
+
+      static get properties() {
+        return {
+          languages: {
+            type: Array,
+            value() {
+              return [
+              { name: 'Angular', 
+                type: 'Plateform', 
+                proficiency: '3', 
+                details: `Angular the success to AngularJS journey has been quite intresting I've personnally been following
+                Angular since I've gotten into AngularJS before it's release. It has been one of the craziest plateforms to keep up with 
+                since it has constant patch and version releases. Though I still considered myself a novice in the platform I currently have a side project
+                completely focused in exploring the capabilities of using this framework in all segments of software development. I am highly impressed of this
+                platforms potential for future web applications and I hope to see more companies invest in this amazing front-end platform. Though I understand
+                very few companies would invest in a platform that has yet to withstand the test of time it's tooling from what I have experienced so far
+                is hard to resist.`, image: '' },
+              { name: 'AngularJS', type: 'Framework', proficiency: '3', details: `AngularJS is my first love. The power of a client side mode-view-control and seperation of
+              concerns made me fall for it right away. Though the journey was a challenging one to completly understand it's concepts and obtain the power of this framework,
+              I do consider myself somewhat of an expert in this framework though there is plenty of power in it that I have yet to explore and fully realize. Which is what makes frameworks
+              in general so amazing; they just keep surprising us developers now a days and reminding us that it is a fantastic time to be a developer.`, image: '' },
+              { name: 'PHP', type: 'Language', proficiency: '3', details: `PHP is my first offcial professional language I used for customers. My passion for this language is certainly back and forth.
+              Though over time as I experienced other back-end technologies I've grown an appeciatation for what this server-side language did for me. (I'm looking at you JAVA), my experiences with this 
+              language certainly was extensive and very vanilla.  Initially I used it for rendering pages server side until I discoverd the glory of AngularJS
+              As a Full Stack Web developer I highly appeciated the way PHP worked as a REST API. JDBC-OCI oracle driver and the power of PHP simply taking cursor objects from the database
+              was a breeze compared to other languages where you must manually iterate through your result set. Though after intense expore to this language
+              you quickly realize that it is certainly one that is easy to get into but hard to fully master.`, image: '' },
+              { name: 'JAVA', type: 'Language', proficiency: '3', details: `JAVA. Personally the most disappointing language I have come across.
+              I did highly enjoy it through Computer Science courses; though it's potential and language goals quickly became obsolete. The write it once
+              and work everywhere just has not turned out as we all imagined. I don't see myself ever using JAVA in a web application senario; it's draw backs are 
+              too heavy. The amount of memory allocated to this language has always been bizzare since conception. Though certainly a language that pioneered object oriented programming
+              philoiphy so I do thank it for making those principles well known and used. Outside of an interest of developing native Android applications with it.
+              I'd personnaly stay away from it in enterprise products and have it stick to being a teaching language I grew up with.`, image: '' },
+              { name: 'JavaScript', type: 'Language', proficiency: '3', details: `JavaScript EveryWhere! The most popular language in the world and certainly my favorite
+              among all of them. Though the JavaScript Everywhere momentum is certainly a bit scary considering the failure of Java everywhere.
+              Not only now a days can we use JavaScript for Front-end applications, we are even able to create native applications with it thanks to technologies
+              such as Electron. The industry has not stopped there either. We also now have servers-side and databases using JavaScript such as Express and MongoDB.
+              It's great to be a developer now a days to have the option to use one language across your entire application stack. The pitfalls and versioning of JavaScript does
+              make it easy but increiablly hard to fully master. So as wonky Internet Explorer support (just die already please) and the ever increasing complexlity of the language,
+              but still having to be backwards compatiable. The most significant thing to the language is community. Personnaly I side with any language or any other context for a matter of fact
+              if it has a strong comuunnity behind it. It's how things get done, with millions of people providing feed-back to the language as a whole crazy amount of tooling avaiable and 
+              libraries and frameworks the craziness does not seem to be ending any time soon. 
+              `, image: '' },
+              { name: 'TypeScript', type: 'Language', proficiency: '3', details: `I find it kinda crazy that JavaScript is so popular we've made a superset language for it.
+              TypeScript thanks to Microsoft is a suppose to be most of the future JavaScript capabilites that it will eventually have. It certainly is powerful though some developers
+              have different opioins on it. Angular does use it has it's bread and butter for development; personnally I too am worried this trend of adding another layer of technology
+              will turn off future developers of the amount we all have to learn now a days. Currently still a novice with this technology stack but quickly become more familiar with it by the day.
+              In the Angular platform it's also something you constantly need to watch since an update in typescript could very well break your Angular project. Oh the depdency nightmare just
+              keeps growing. Looking forward to utlizing it more, though it's hard to say I would have ever had an interest in it; if it were not for Angular.
+              `, image: '' },
+              { name: 'PL/SQL', type: 'Language', proficiency: '3', details: `Where should database queries reside? In the database! This is the main philosophy I abide by now when it comes to applications development
+              It's certainly not something that was very obvious at first and for my personnally it took fellow co-workers to expose me to this idea of packages and stored procedures in the database.
+              Though you can certainly store your application logic in your PL/SQL. I personnaly shy away from that style unless on a legacy platform. Having your queries all in one place makes things quite a bit easier to trace for bugs
+              insure standards, facilitate application modularity, increase application security, and siginificant increasing application performance (Not only by having your queries in the database, but most typically
+              your database not your application server has more significant powerful hardware behind it.). For those of you saying SQL and the database should not be the concern of the developer. Shame on you! Applications
+              come and go; but data is forever.`, image: '' },
+              { name: 'Polymer', type: 'Library', proficiency: '3', details: `Probably one of the easiest libraries to get into. Though personally libraries and framework lines seem to be getting murkier and murkier.
+              Initially discovered this library by following Google developer talks I was certainly skiptical at first. To me it so far it's let's take AngularJS web components and directive design, focus on that, and mutiple it by a million.
+              Highly impressed with the results thus far. I have yet to see how Angular and Polymer mend together; but just a few days into Polymer I felt I was able to build full scale applications with it. It's certainly a light-weight library
+              easy to understand if you come from a directive or web component design background. The siginifcant draw backs I see already is the documentation and somewhat lacking community (though there's an amazing web component 
+              location). Hopefully as time moves on there will be additional resources for this library. 
+              `, image: '' },
+              { name: 'JQuery', type: 'Library', proficiency: '3', details: `Write Less do more! This eventually became somewhat of a negative side effect in my development carreer. JQuery is an amazing front-end library
+              to handle DOM behaviors and to gather server-side data via AJAX calls. Unlike some other libraries and frameworks on this list. I feel like it had the unique ability to be stand alone.
+              It scans your document for id's, names and other elements and behaves accordingly instead of completly integrating such as the likes of Polymer and AngularJS. Though I see fewer and fewer
+              recuirters looking for JQuery expertise; I would highly reccomend anyone to read up and use this library as it heavily exposes you to the document object model, it's concepts and some of the original ideas
+              that current library and frameworks were inspired by.`, image: '' },
+              { name: 'C', type: 'Language', proficiency: '3', details: ``, image: '' },
+              { name: 'C++', type: 'Language', proficiency: '3', details: ``, image: '' },
+              { name: 'Bootstrap', type: 'Framework', proficiency: '3', details: ``, image: '' },
+              { name: 'JQuery UI', type: 'Library', proficiency: '3', details: ``, image: '' },
+              { name: 'Panther', type: 'Platform', proficiency: '3', details: ``, image: '' },
+              { name: 'Angular Material', type: 'Library', proficiency: '3', details: ``, image: '' },
+              { name: 'Protractor', type: 'Library', proficiency: '3', details: ``, image: '' },
+              { name: 'Fusion Charts', type: 'Library', proficiency: '3', details: ``, image: '' },
+              { name: 'P.E.A.R', type: 'Library', proficiency: '3', details: ``, image: '' },
+              { name: 'SQL', type: 'Language', proficiency: '3', details: ``, image: '' },
+              { name: 'CSS3', type: 'Language', proficiency: '3', details: ``, image: '' },
+              { name: 'HTML5', type: 'Language', proficiency: '3', details: ``, image: '' },
+              { name: 'JQuery Datatables', type: 'Library', proficiency: '3', details: ``, image: '' },
+              { name: 'Jasmine', type: 'Library', proficiency: '3', details: ``, image: '' },
+              { name: 'ColdFusion', type: 'Language', proficiency: '3', details: ``, image: '' },
+              { name: 'Babel', type: 'Library', proficiency: '3', details: ``, image: '' },
+              { name: 'Slick', type: 'Library', proficiency: '3', details: ``, image: '' },
+              { name: 'Gulp', type: 'Library', proficiency: '3', details: ``, image: '' },
+              { name: 'Animate CSS', type: 'Library', proficiency: '3', details: ``, image: '' },
+              { name: 'A-Frame', type: 'Framework', proficiency: '3', details: ``, image: '' },
+              ];
+            }
+          }
+        }
+      }
+
+
+
+
+
+    }
+    window.customElements.define(MyLanguages.is, MyLanguages);
+  </script>
+
+
+</dom-module>
